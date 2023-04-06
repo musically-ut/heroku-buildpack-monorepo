@@ -32,7 +32,7 @@ fi
 echo "Copied ${APP_BASE} to root of app successfully" | indent
 
 if [ -n "$PROCFILE" ]; then
-  cp "$PROCFILE" Procfile
+  cp "${BUILD_DIR}/${PROCFILE}" "${BUILD_DIR}/Procfile"
   echo "Copied ${PROCFILE} to Procfile" | indent
 else
   echo "${PROCFILE} is not defined, assuming the ${APP_BASE} has it" | indent
