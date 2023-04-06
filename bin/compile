@@ -31,9 +31,10 @@ fi
 
 echo "Copied ${APP_BASE} to root of app successfully" | indent
 
-if [ -n "$PROCFILE" ]; then
+if [ -f "${ENV_DIR}/PROCFILE" ]; then
+  PROCFILE="$(cat "${ENV_DIR}/PROCFILE")"
   cp "${BUILD_DIR}/${PROCFILE}" "${BUILD_DIR}/Procfile"
   echo "Copied ${PROCFILE} to Procfile" | indent
 else
-  echo "${PROCFILE} is not defined, assuming the ${APP_BASE} has it" | indent
+  echo "\$PROCFILE is not defined, assuming '${APP_BASE}' has it" | indent
 fi
